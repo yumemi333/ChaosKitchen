@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f;
+    private bool isWalking = false;
+    public bool IsWalking => isWalking;
 
     private void Update()
     {
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour
         }
 
         inputVector = inputVector.normalized;
+        isWalking = inputVector != Vector2.zero;
 
         Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
 
