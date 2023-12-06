@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
-        public ClearCounter selectedCounter;
+        public ClearCounter SelectedCounter;
     }
 
     [SerializeField] private float moveSpeed = 7f;
@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
         this.selectedCounter = selectedCounter;
         OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
         {
-            selectedCounter = this.selectedCounter
+            SelectedCounter = this.selectedCounter
         });
     }
 }
