@@ -2,7 +2,6 @@
 
 public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 {
-    [SerializeField] protected KitchenObjectScriptableObject kitchenObjectSO;
     [SerializeField] protected Transform counterTopPoint;
 
     private KitchenObject kitchenObject = null;
