@@ -129,7 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseCounter: {fileID: 4668829290204955905}
-  selectedGameObject: {fileID: 4329497330806287204}
+  selectedGameObjects:
+  - {fileID: 4329497330806287204}
 --- !u!1001 &53056583340245707
 PrefabInstance:
   m_ObjectHideFlags: 0
