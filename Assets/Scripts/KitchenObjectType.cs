@@ -1,5 +1,8 @@
 ﻿public enum KitchenObjectType
 {
     Tomato,
-    Cheese
+    Cheese,
+    Cabbage,
+    MeatPattyUncooked,
+
 }
