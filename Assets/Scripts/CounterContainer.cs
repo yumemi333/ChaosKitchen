@@ -12,8 +12,9 @@ public class CounterContainer : BaseCounter, IKitchenObjectParent
         {
             return;
         }
-        Transform clone = Instantiate(kitchenObjectSO.Prefab);
-        clone.GetComponent<KitchenObject>().SetKitchenObjectParent(player);
+
+        KitchenObject.SpawnKithenObject(kitchenObjectSO, player);
+
         OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -958,7 +958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 980472698799480707, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
       propertyPath: m_Name
-      value: CuttingCounter
+      value: CuttingCounter_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}

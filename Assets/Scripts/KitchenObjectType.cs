@@ -4,5 +4,5 @@
     Cheese,
     Cabbage,
     MeatPattyUncooked,
-
+    TomatoSlice
 }
