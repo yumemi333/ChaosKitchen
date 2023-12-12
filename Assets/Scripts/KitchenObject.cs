@@ -2,11 +2,11 @@
 
 public class KitchenObject : MonoBehaviour
 {
-    [SerializeField] private KitchenObjectScriptableObject kitchenObjectScriptableObject;
+    [SerializeField] private KitchenObjectSO kitchenObjectScriptableObject;
 
     private IKitchenObjectParent kitchenObjectParent;
 
-    public KitchenObjectScriptableObject GetKitchenObjectScriptableObject()
+    public KitchenObjectSO GetKitchenObjectScriptableObject()
     {
         return kitchenObjectScriptableObject;
     }
@@ -38,7 +38,7 @@ public class KitchenObject : MonoBehaviour
 
 
 
-    public static KitchenObject SpawnKithenObject(KitchenObjectScriptableObject kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
+    public static KitchenObject SpawnKithenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
     {
         Transform clone = Instantiate(kitchenObjectSO.Prefab);
         KitchenObject kitchenObject = clone.GetComponent<KitchenObject>();

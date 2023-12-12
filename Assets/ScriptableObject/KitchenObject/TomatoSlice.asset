@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc4ed9087b27a364583d6afdf392775e, type: 3}
+  m_Script: {fileID: 11500000, guid: a08c9de9edd9d7b4bb79785525ed5928, type: 3}
   m_Name: TomatoSlice
   m_EditorClassIdentifier: 
   Prefab: {fileID: 2342856073165000350, guid: 3cdba58da9afe474d91eec2a6a7455ac, type: 3}
   Sprite: {fileID: 21300000, guid: c9f08c3c1ae2a364aaeaa3712540b1d4, type: 3}
-  KitchenObjectType: 0
+  KitchenObjectType: 4

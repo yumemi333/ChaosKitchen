@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a08c9de9edd9d7b4bb79785525ed5928, type: 3}
-  m_Name: UncookedMeatPatty
+  m_Script: {fileID: 11500000, guid: 181fc4579873f3244b779a7c4fb371ee, type: 3}
+  m_Name: CabbageRecipe
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 73847997058339118, guid: 913c3f3c819890143b48304f80c7403c, type: 3}
-  Sprite: {fileID: 21300000, guid: aa1bacc24dde76e47b2ec0dd4e82385b, type: 3}
-  KitchenObjectType: 3
+  input: {fileID: 11400000, guid: d82dfb008e14a5240a2447f32dc9923b, type: 2}
+  output: {fileID: 11400000, guid: f18c5e1a5a7a6b247a00a694b969884a, type: 2}
+  Name: CabbageRecipe

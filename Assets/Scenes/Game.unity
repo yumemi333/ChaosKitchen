@@ -960,6 +960,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuttingCounter_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6790290779829441876, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
+      propertyPath: cuttingRecipeSOs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790290779829441876, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
+      propertyPath: cuttingRecipeSOs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: fd24558535871d34b904e7966b45869f, type: 2}
+    - target: {fileID: 6790290779829441876, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
+      propertyPath: cuttingRecipeSOs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: db9a0ff2a3649f04b923eef1ae2603ba, type: 2}
+    - target: {fileID: 6790290779829441876, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
+      propertyPath: cuttingRecipeSOs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: e3a142cadc3359840bedaf215c6d8ce6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
 --- !u!4 &1578245146 stripped
