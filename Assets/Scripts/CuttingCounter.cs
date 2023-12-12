@@ -18,25 +18,34 @@ public class CuttingCounter : BaseCounter
         {
             if (player.HasKitchenObject())
             {
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectScriptableObject()))
+                {
+                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                }
             }
         }
     }
 
     public override void InteractAlternate(Player player)
     {
-        if (HasKitchenObject())
+        if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectScriptableObject()))
         {
             KitchenObjectSO outputSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectScriptableObject());
-  
+
             GetKitchenObject().DestroySelf();
 
             KitchenObject.SpawnKithenObject(outputSO, this);
         }
     }
 
+    // そもそもカットできる料理なのかのチェック
+    private bool HasRecipeWithInput(KitchenObjectSO kitchenObjectSO)
+    {
+        return cuttingRecipeSOs.FirstOrDefault(a => a.input == kitchenObjectSO) != null;
+    }
+
     private KitchenObjectSO GetOutputForInput(KitchenObjectSO kitchenObjectSO)
     {
-        return cuttingRecipeSOs.FirstOrDefault(a=> a.input.Name == kitchenObjectSO.Name).output;
+        return cuttingRecipeSOs.FirstOrDefault(a => a.input == kitchenObjectSO).output;
     }
 }
