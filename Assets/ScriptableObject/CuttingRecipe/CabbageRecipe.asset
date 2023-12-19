@@ -15,3 +15,4 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: d82dfb008e14a5240a2447f32dc9923b, type: 2}
   output: {fileID: 11400000, guid: f18c5e1a5a7a6b247a00a694b969884a, type: 2}
   Name: CabbageRecipe
+  cuttingProgressMax: 3

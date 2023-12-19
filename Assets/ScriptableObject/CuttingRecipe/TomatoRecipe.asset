@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 9e7982cddb3dcc74d85f055e45cdec88, type: 2}
   output: {fileID: 11400000, guid: d8b3a24f1c257ed4cb9c5c910cc4246f, type: 2}
-  Name: 
+  Name: TomatoRecipe
+  cuttingProgressMax: 3

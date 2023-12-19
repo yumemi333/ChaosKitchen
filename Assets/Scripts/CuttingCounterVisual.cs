@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ContainerCounterVisual : MonoBehaviour
+public class CuttingCounterVisual : MonoBehaviour
 {
     [SerializeField] private Animator animator = null;
-    [SerializeField] private CounterContainer counterContainer = null;
-    private const string OPEN_CLOSE = "OpenClose";
+    [SerializeField] private CuttingCounter cuttingCounter = null;
 
     private void Reset()
     {
@@ -16,11 +15,12 @@ public class ContainerCounterVisual : MonoBehaviour
 
     private void Start()
     {
-        counterContainer.OnPlayerGrabbedObject += CounterContainer_OnPlayerGrabbedObject;
+        cuttingCounter.OnCut += CounterContainer_OnPlayerGrabbedObject;
     }
 
     private void CounterContainer_OnPlayerGrabbedObject(object sender, EventArgs e)
     {
-        animator.SetTrigger(OPEN_CLOSE);
+        animator.SetTrigger("Cut");
     }
+
 }
