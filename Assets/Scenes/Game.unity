@@ -123,6 +123,112 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &99563102
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 585062001}
+    m_Modifications:
+    - target: {fileID: 1372024211136516114, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_Name
+      value: _Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372024211136516114, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172494784709804525, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_Name
+      value: _SizzlingParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172494784709804525, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265292022094562328, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913726736121112013, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_Name
+      value: _Frying Pan
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913726736121112013, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226567174673045092, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_Name
+      value: _StoveOnVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226567174673045092, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064462, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_Name
+      value: StoveCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677233702626862060, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_Name
+      value: _Stove
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677233702626862060, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+--- !u!4 &99563103 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6751099193743064463, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+  m_PrefabInstance: {fileID: 99563102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &113518907
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +383,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 585062001}
     m_Modifications:
+    - target: {fileID: 313198167858164777, guid: 46f2e9e63acc5904c90bc4cd66b1637c, type: 3}
+      propertyPath: m_Name
+      value: _Trash bin
+      objectReference: {fileID: 0}
+    - target: {fileID: 313198167858164777, guid: 46f2e9e63acc5904c90bc4cd66b1637c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4350175855936560756, guid: 46f2e9e63acc5904c90bc4cd66b1637c, type: 3}
       propertyPath: m_Name
       value: TrashCounter
@@ -366,6 +480,7 @@ Transform:
   - {fileID: 362501680}
   - {fileID: 1408517869}
   - {fileID: 505263891}
+  - {fileID: 99563103}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
