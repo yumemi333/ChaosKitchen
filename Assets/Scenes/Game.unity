@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1459629741526987472, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2172494784709804525, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
       propertyPath: m_Name
       value: _SizzlingParticles
@@ -163,6 +167,10 @@ PrefabInstance:
       value: _StoveOnVisual
       objectReference: {fileID: 0}
     - target: {fileID: 6226567174673045092, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633468137829655897, guid: 46215d86dc801624093c2e7c139742b2, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -991,24 +999,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1280233162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3664083999142519945, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
-  m_PrefabInstance: {fileID: 1578245145}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1280233168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280233162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a3cbeeafd8dc3947a99daf6a765e402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 2
 --- !u!1001 &1334568104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1219,16 +1209,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuttingCounter_1
       objectReference: {fileID: 0}
-    - target: {fileID: 6764079571303201857, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
-      propertyPath: mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7052796380349001796, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 963194227}
-    m_RemovedComponents:
-    - {fileID: 6764079571303201857, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 253cec4490b5ac443855f3322bbc3e0b, type: 3}
 --- !u!4 &1578245146 stripped
 Transform:
