@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalRotation.x
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalRotation.z
@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -210,7 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f438acb0b4755bd4ebf434d8382bc868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenObjectSO: {fileID: 11400000, guid: edfdf233bedc79049adcbb8a03ef1446, type: 2}
   counterTopPoint: {fileID: 7302806468223578562}
 --- !u!4 &7302806468223578562 stripped
 Transform:

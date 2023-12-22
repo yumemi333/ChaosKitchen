@@ -476,7 +476,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 588029611795536372, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_Name
-      value: ContainerCounter
+      value: _Base_ContainerCounter
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_RootOrder
@@ -496,19 +496,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -516,7 +516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -546,8 +546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d111b762cec3c4181670fbaedc5819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenObjectSO: {fileID: 11400000, guid: 9e7982cddb3dcc74d85f055e45cdec88, type: 2}
   counterTopPoint: {fileID: 2020189724376447231}
+  kitchenObjectSO: {fileID: 11400000, guid: 9e7982cddb3dcc74d85f055e45cdec88, type: 2}
 --- !u!4 &8197826123392356867 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 588029611795536373, guid: 8904e7c5200654241bb7fd97144966f5, type: 3}
