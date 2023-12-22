@@ -9,17 +9,14 @@ public class ProgressBarUI : MonoBehaviour
     private IHasProgress iHasProgress;
     [SerializeField] private Image barImage;
 
-    private void OnValidate()
+
+    private void Start()
     {
-        iHasProgress = ihasProgressGameObject.GetComponent<IHasProgress>();
+        ihasProgressGameObject.TryGetComponent<IHasProgress>(out iHasProgress);
         if (iHasProgress == null)
         {
             Debug.LogError($"Game Object {ihasProgressGameObject} does not have IHasProgress component");
         }
-    }
-
-    private void Start()
-    {
         iHasProgress.OnProgressChanged += IHasProgress_OnProgressChanged;
 
         barImage.fillAmount = 0;
