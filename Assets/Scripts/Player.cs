@@ -30,8 +30,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private bool isWalking = false;
     public bool IsWalking => isWalking;
 
-    private float playerHeight = 2f;
-    private float interactDistance = 2f;
+    private float playerHeight = 0.5f;
+    private float interactDistance = 0.1f;
     private float playerRadius = 0.7f;
 
     private Vector3 lastInteractDir;
@@ -136,10 +136,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             lastInteractDir = moveDir;
         }
 
-        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, counters))
-        {
+        if (Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, lastInteractDir, out RaycastHit hit, interactDistance, counters)){        
             // ClearCounterに当たった
-            if (raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
+            if (hit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
                 if (selectedCounter != baseCounter)
                 {
