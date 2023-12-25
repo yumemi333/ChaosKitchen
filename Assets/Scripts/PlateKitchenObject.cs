@@ -11,13 +11,13 @@ public class PlateKitchenObject : KitchenObject
         public KitchenObjectSO Ingredient;
     }
 
-    private List<KitchenObjectSO> kitchenObjects = new List<KitchenObjectSO>();
+    private List<KitchenObjectSO> kitchenObjectSOList = new List<KitchenObjectSO>();
     [SerializeField] private List<KitchenObjectSO> validKitchenObject = new List<KitchenObjectSO>();
 
     public bool TryAddIngredient(KitchenObjectSO kitchenObjectSO)
     {
         // もう所持している
-        if (kitchenObjects.Any(e=> e.name == kitchenObjectSO.name))
+        if (kitchenObjectSOList.Any(e=> e.name == kitchenObjectSO.name))
         {
             return false;
         }
@@ -28,10 +28,15 @@ public class PlateKitchenObject : KitchenObject
             return false;
         }
         
-        kitchenObjects.Add(kitchenObjectSO);
+        kitchenObjectSOList.Add(kitchenObjectSO);
 
         OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs { Ingredient = kitchenObjectSO});
 
         return true;
+    }
+
+    public List<KitchenObjectSO> GetKitchenObjectSOList()
+    {
+        return kitchenObjectSOList;
     }
 }
