@@ -49,7 +49,6 @@ public class KitchenObject : MonoBehaviour
 
     }
 
-
     public static KitchenObject SpawnKithenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
     {
         Transform clone = Instantiate(kitchenObjectSO.Prefab);

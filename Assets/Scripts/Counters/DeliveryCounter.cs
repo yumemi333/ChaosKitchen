@@ -1,9 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
 public class DeliveryCounter : BaseCounter
 {
+    private event EventHandler<OnDeliveredEventArgs> OnDelivered;
+    public class OnDeliveredEventArgs
+    {
+        public PlateKitchenObject plateKitchenObject;
+    }
     public override void Interact(Player player)
     {
         if (player.HasKitchenObject())
@@ -11,6 +14,8 @@ public class DeliveryCounter : BaseCounter
             if(player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
             {
                 player.GetKitchenObject().DestroySelf();
+
+                DeliveryManager.Instance.DeliverRecipe(plateKitchenObject);
                 SetKitchenObject(plateKitchenObject);
             }
         }
