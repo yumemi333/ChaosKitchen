@@ -80,13 +80,24 @@ public class StoveCounter : BaseCounter, IHasProgress
     {
         if (HasKitchenObject())
         {
-            if (this.HasKitchenObject() && !player.HasKitchenObject())
+            if (player.HasKitchenObject())
+            {
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+                    }
+                }
+            }
+            else
             {
                 GetKitchenObject().SetKitchenObjectParent(player);
-                currentState = State.Idle;
-                OnStateChanged.Invoke(this, new OnStateChangedEventArgs { State = currentState });
-                OnProgressChanged.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progressNomalized = 0 });
             }
+            currentState = State.Idle;
+            OnStateChanged.Invoke(this, new OnStateChangedEventArgs { State = currentState });
+            OnProgressChanged.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progressNomalized = 0 });
+
         }
         else
         {
@@ -94,13 +105,13 @@ public class StoveCounter : BaseCounter, IHasProgress
 
             if (player.HasKitchenObject())
             {
-                if (!HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectScriptableObject()))
+                if (!HasRecipeWithInput(player.GetKitchenObject().GetKitchenSO()))
                 {
                     return;
                 }
 
                 player.GetKitchenObject().SetKitchenObjectParent(this);
-                fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectScriptableObject());
+                fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenSO());
                 currentState = State.Frying;
                 OnStateChanged.Invoke(this, new OnStateChangedEventArgs { State = currentState });
                 OnProgressChanged.Invoke(this, new IHasProgress.OnProgressChangedEventArgs { progressNomalized = 0 });

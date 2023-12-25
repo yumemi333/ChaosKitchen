@@ -7,9 +7,30 @@ public class ClearCounter : BaseCounter
     {
         if (HasKitchenObject())
         {
-            if (this.HasKitchenObject() && !player.HasKitchenObject())
+            if (player.HasKitchenObject())
             {
-                this.GetKitchenObject().SetKitchenObjectParent(player);
+                // プレイヤーが皿を持っているかチェック
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+                    }
+                }
+                else
+                {
+                    // カウンターの上に皿があるかチェック
+                    if(GetKitchenObject().TryGetPlate(out plateKitchenObject)){
+                        if (plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenSO()))
+                        {
+                            player.GetKitchenObject().DestroySelf();
+                        }
+                    }
+                }
+            }   
+            else
+            {
+                GetKitchenObject().SetKitchenObjectParent(player);
             }
         }
         else

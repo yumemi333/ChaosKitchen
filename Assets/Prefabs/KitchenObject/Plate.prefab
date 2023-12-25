@@ -59,13 +59,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3499242478015176163, guid: 48b688f9515c15145987dc4f6bb1923d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48b688f9515c15145987dc4f6bb1923d, type: 3}
 --- !u!4 &7224446323957613052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4630349275027097294, guid: 48b688f9515c15145987dc4f6bb1923d, type: 3}
   m_PrefabInstance: {fileID: 2594123437532546866}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7224446323957613053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4630349275027097295, guid: 48b688f9515c15145987dc4f6bb1923d, type: 3}
+  m_PrefabInstance: {fileID: 2594123437532546866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7419172734170240584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224446323957613053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ab27291d77cc24f8f089d0619ce43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kitchenObjectScriptableObject: {fileID: 11400000, guid: 8a04dee78c4f2eb4291e02aead8c84dd, type: 2}
+  validKitchenObject:
+  - {fileID: 11400000, guid: f18c5e1a5a7a6b247a00a694b969884a, type: 2}
+  - {fileID: 11400000, guid: edfdf233bedc79049adcbb8a03ef1446, type: 2}
+  - {fileID: 11400000, guid: f173546156bf88e45badc699c418cae0, type: 2}
+  - {fileID: 11400000, guid: d8b3a24f1c257ed4cb9c5c910cc4246f, type: 2}
 --- !u!1001 &7331191976435734044
 PrefabInstance:
   m_ObjectHideFlags: 0

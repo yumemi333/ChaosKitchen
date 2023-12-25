@@ -26,8 +26,6 @@ public class PlateCounter : BaseCounter
                 spawnPlateCount++;
             }
         }
-
-
     }
 
     public override void Interact(Player player)
