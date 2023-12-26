@@ -42,7 +42,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -123,6 +123,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         isWalking = inputVector != Vector2.zero;
         transform.position += moveDir * moveDistance;
 
+        if (moveDir == Vector3.zero)
+        {
+            return;
+        }
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * 10);
     }
 
@@ -136,7 +140,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             lastInteractDir = moveDir;
         }
 
-        if (Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, lastInteractDir, out RaycastHit hit, interactDistance, counters)){        
+        if (Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, lastInteractDir, out RaycastHit hit, interactDistance, counters))
+        {
             // ClearCounterに当たった
             if (hit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
