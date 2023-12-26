@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlateIconsUI : MonoBehaviour
 {
     [SerializeField] private PlateKitchenObject plateKitchenObject;
-    [SerializeField] private PlateIconSingleUI icon;
+    [SerializeField] private SingleIconUI icon;
 
-    List<PlateIconSingleUI> icons = new List<PlateIconSingleUI>();
+    List<SingleIconUI> icons = new List<SingleIconUI>();
     void Start()
     {
         plateKitchenObject.OnIngredientAdded += PlateKitchenObject_OnIngredientAdded;
@@ -28,7 +28,7 @@ public class PlateIconsUI : MonoBehaviour
 
         for(int i_kitchenSO = 0; i_kitchenSO < plateKitchenObject.GetKitchenObjectSOList().Count; i_kitchenSO++)
         {
-            PlateIconSingleUI icon;
+            SingleIconUI icon;
             if (i_kitchenSO < icons.Count)
             {
                 icon = icons[i_kitchenSO];

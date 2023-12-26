@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plateKitchenObject: {fileID: -7419172734170240584}
-  icon: {fileID: 6929752260529512312}
+  icon: {fileID: 3566676091291535152}
 --- !u!1 &6986069772570598866
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 7125455957621272947}
   - component: {fileID: 7165844130848705417}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2781698313444314191}
   - component: {fileID: 4721334273790449234}
-  - component: {fileID: 6929752260529512312}
+  - component: {fileID: 3566676091291535152}
   m_Layer: 5
   m_Name: _Icon [Original]
   m_TagString: Untagged
@@ -401,7 +401,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8836017480523166018}
   m_CullTransparentMesh: 1
---- !u!114 &6929752260529512312
+--- !u!114 &3566676091291535152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8836017480523166018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5db3b0244b0014891d37110f238b0b, type: 3}
+  m_Script: {fileID: 11500000, guid: a845da959cf783f4e9a886afbfa1f648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   iconImage: {fileID: 7165844130848705417}

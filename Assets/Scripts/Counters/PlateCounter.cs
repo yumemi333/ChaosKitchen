@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class PlateCounter : BaseCounter
 {
-    private float spawnPlateTimer;
-    private float spawnPlateCount;
+    private float spawnPlateTimer = 0;
+    private float spawnPlateCount = 0;
 
-    private const float spawnPlateTimerMax = 3;
+    private const float spawnPlateTimerMax = 3f;
     private const float spawnPlateMax = 5;
 
     [SerializeField] private KitchenObjectSO kitchenObjectSO;

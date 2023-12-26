@@ -9,10 +9,14 @@ public class DeliveryManager : MonoBehaviour
 
     private List<RecipeSO> waitingRecipeSOList = new List<RecipeSO>();
 
-    private float spawnRecipeTimer;
+    private float spawnRecipeTimer = 0f;
     private float spawnRecipeTimerMax = 4f;
 
-    private int waitingRecipeMax = 5;
+    private int waitingRecipeMax = 3;
+
+    public event EventHandler OnRecipeSpawned;
+    public event EventHandler OnRecipeCompleted;
+    public event EventHandler OnRecipeWrong;
 
     private void Awake()
     {
@@ -29,18 +33,18 @@ public class DeliveryManager : MonoBehaviour
             if (waitingRecipeSOList.Count < waitingRecipeMax)
             {
                 RecipeSO recipeSO = recipeList.RecipeSOList[UnityEngine.Random.Range(0, recipeList.RecipeSOList.Count)];
-                Debug.Log(recipeSO.Name);
                 waitingRecipeSOList.Add(recipeSO);
+                OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
         }
     }
 
     public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
     {
-        foreach (var item_waitingRecipe in waitingRecipeSOList)
+        for (int i_waiting = 0; i_waiting < waitingRecipeSOList.Count; i_waiting++)
         {
             // 皿に乗っているのと、配給待ちの料理の材料の数が同じかチェック
-            if (item_waitingRecipe.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
+            if (waitingRecipeSOList[i_waiting].kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 bool allIngredientMathed = true;
 
@@ -50,7 +54,7 @@ public class DeliveryManager : MonoBehaviour
                     bool sameIngredientFound = false;
 
                     // 材料と同じかチェック
-                    foreach (var item_waiting in item_waitingRecipe.kitchenObjectSOList)
+                    foreach (var item_waiting in waitingRecipeSOList[i_waiting].kitchenObjectSOList)
                     {
                         if (item_plate.Name == item_waiting.Name)
                         {
@@ -68,11 +72,17 @@ public class DeliveryManager : MonoBehaviour
 
                 if (allIngredientMathed)
                 {
-                    Debug.Log("CORRECT");
+                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                    waitingRecipeSOList.RemoveAt(i_waiting);
                     return;
                 }
-            }           
+            }
         }
-        Debug.Log("WRONG");
+        OnRecipeWrong.Invoke(this, EventArgs.Empty);
+    }
+
+    public List<RecipeSO> GetWaitingRecipeListSOs()
+    {
+        return waitingRecipeSOList;
     }
 }
