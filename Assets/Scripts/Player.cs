@@ -82,6 +82,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
+        if (!KitchenGameManager.Instance.IsGamePlaying)
+        {
+            return;
+        }
         float moveDistance = Time.deltaTime * moveSpeed;
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
@@ -132,6 +136,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleInteraction()
     {
+        if (!KitchenGameManager.Instance.IsGamePlaying)
+        {
+            return;
+        }
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
 

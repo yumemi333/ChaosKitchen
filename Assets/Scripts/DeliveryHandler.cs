@@ -25,6 +25,10 @@ public class DeliveryHandler : MonoBehaviour
 
     private void Update()
     {
+        if (!KitchenGameManager.Instance.IsGamePlaying)
+        {
+            return;
+        }
         spawnRecipeTimer -= Time.deltaTime;
         if (spawnRecipeTimer <= 0)
         {
