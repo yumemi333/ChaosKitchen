@@ -19,6 +19,7 @@ public class KitchenGameManager : MonoBehaviour
     private GameState gameState = GameState.WaitingToStart;
     public bool IsGamePlaying => gameState == GameState.GamePlaying;
     public bool IsCountdownToStartActive => gameState == GameState.CountDownToStart;
+    public bool IsGameEnd => gameState == GameState.GameOver;
 
     private float waitingToStartTimer = 1f;
     private float countDownToStartTimer = 3f;
