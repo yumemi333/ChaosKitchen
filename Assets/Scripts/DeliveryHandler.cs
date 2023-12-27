@@ -12,7 +12,7 @@ public class DeliveryHandler : MonoBehaviour
     private float spawnRecipeTimer = 0f;
     private float spawnRecipeTimerMax = 4f;
 
-    private int waitingRecipeMax = 3;
+    private int waitingRecipeMax = 5;
 
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeCompleted;
