@@ -8,24 +8,18 @@ public class DeliveryManagerUI : MonoBehaviour
 
     private void Start()
     {
-        DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
-        DeliveryManager.Instance.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
-        DeliveryManager.Instance.OnRecipeWrong += DeliveryManager_OnRecipeWrong;
-    }
-
-    private void DeliveryManager_OnRecipeWrong(object sender, EventArgs e)
-    {
-        throw new NotImplementedException();
+        DeliveryHandler.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
+        DeliveryHandler.Instance.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
     }
 
     private void DeliveryManager_OnRecipeSpawned(object sender, EventArgs e)
     {
-        SpawnNewRecipe(DeliveryManager.Instance.GetWaitingRecipeListSOs());
+        SpawnNewRecipe(DeliveryHandler.Instance.GetWaitingRecipeListSOs());
     }
 
     private void DeliveryManager_OnRecipeCompleted(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        SpawnNewRecipe(DeliveryHandler.Instance.GetWaitingRecipeListSOs());
     }
 
     private void SpawnNewRecipe(List<RecipeSO> recipeSOs)

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeliveryManager : MonoBehaviour
+public class DeliveryHandler : MonoBehaviour
 {
     [SerializeField] private RecipeListSO recipeList;
-    public static DeliveryManager Instance { get; set; }
+    public static DeliveryHandler Instance { get; set; }
 
     private List<RecipeSO> waitingRecipeSOList = new List<RecipeSO>();
 
@@ -48,14 +48,14 @@ public class DeliveryManager : MonoBehaviour
             {
                 bool allIngredientMathed = true;
 
-                // 皿の上にあるやつが
-                foreach (var item_plate in plateKitchenObject.GetKitchenObjectSOList())
+                // 材料と同じかチェック
+                foreach (var item_waiting in waitingRecipeSOList[i_waiting].kitchenObjectSOList)
                 {
                     bool sameIngredientFound = false;
-
-                    // 材料と同じかチェック
-                    foreach (var item_waiting in waitingRecipeSOList[i_waiting].kitchenObjectSOList)
+                    // 皿の上にあるやつが
+                    foreach (var item_plate in plateKitchenObject.GetKitchenObjectSOList())
                     {
+                       
                         if (item_plate.Name == item_waiting.Name)
                         {
                             sameIngredientFound = true;
