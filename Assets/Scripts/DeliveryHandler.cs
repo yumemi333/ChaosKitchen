@@ -76,8 +76,8 @@ public class DeliveryHandler : MonoBehaviour
 
                 if (allIngredientMathed)
                 {
-                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     waitingRecipeSOList.RemoveAt(i_waiting);
+                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     return;
                 }
             }
