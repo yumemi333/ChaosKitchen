@@ -25,7 +25,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
-    [SerializeField] private LayerMask counters;
 
     private bool isWalking = false;
     public bool IsWalking => isWalking;
@@ -36,6 +35,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private Vector3 lastInteractDir;
     private BaseCounter selectedCounter = null;
+    private Cannon cannon = null;
 
     private KitchenObject kitchenObject = null;
     [SerializeField] private Transform kitchenObjectHoldPoint;
@@ -63,6 +63,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         if (selectedCounter != null)
         {
             selectedCounter.InteractAlternate(this);
+        }
+        if (cannon != null)
+        {
+            cannon.InteractAlternate(this);
         }
     }
 
@@ -148,7 +152,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             lastInteractDir = moveDir;
         }
 
-        if (Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, lastInteractDir, out RaycastHit hit, interactDistance, counters))
+        if (Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, lastInteractDir, out RaycastHit hit, interactDistance))
         {
             // ClearCounterに当たった
             if (hit.transform.TryGetComponent(out BaseCounter baseCounter))
@@ -157,6 +161,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
                 {
                     SetSlectedCounter(baseCounter);
                 }
+            }      
+            else if (hit.transform.TryGetComponent(out Cannon cannon))
+            {
+                SetCannon(cannon);
             }
             else
             {
@@ -166,6 +174,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         else
         {
             SetSlectedCounter(null);
+            //SetCannon(null);
         }
     }
 
@@ -176,6 +185,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             SelectedCounter = this.selectedCounter
         });
+    }
+    private void SetCannon(Cannon cannon)
+    {
+        this.cannon = cannon;
     }
 
     public Transform GetKitchenObjectFollowTransform()
