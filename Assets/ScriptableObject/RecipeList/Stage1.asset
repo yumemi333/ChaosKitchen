@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d7f1b65d6cda04086ccdfc531941e5, type: 3}
+  m_Name: Stage1
+  m_EditorClassIdentifier: 
+  RecipeSOList:
+  - {fileID: 11400000, guid: 29151ad0c831b634e83dc74df67cc8d0, type: 2}
+  - {fileID: 11400000, guid: 496d3ad01a100894a9362272f86aee62, type: 2}
+  - {fileID: 11400000, guid: e483750c68fb87944916c1674f6998d3, type: 2}
+  - {fileID: 11400000, guid: 87b8d8331cd7c4e48a4ffffa6e1046f6, type: 2}
