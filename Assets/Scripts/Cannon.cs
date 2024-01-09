@@ -8,8 +8,7 @@ public class Cannon : MonoBehaviour
     [SerializeField] private Transform playerTopPosition;
     [SerializeField] private Transform playerLandingPoint;
     [SerializeField] private float moveTime = 2.5f;
-    [SerializeField] private float degree = 30f;
-    [SerializeField] private float speed = 10;
+
 
     /// <summary>
     /// 発射準備or飛ぶ
@@ -25,8 +24,8 @@ public class Cannon : MonoBehaviour
         }
         else
         {
-            //StartCoroutine(BezierCurve(player.transform, playerSetPosition, playerTopPosition, playerLandingPoint));
-            StartCoroutine(ProjectileMotion(player.transform));
+            StartCoroutine(BezierCurve(player.transform, playerSetPosition, playerTopPosition, playerLandingPoint));
+           // StartCoroutine(ProjectileMotion(player.transform));
         }
     }
 
@@ -44,37 +43,41 @@ public class Cannon : MonoBehaviour
             current.position = Vector3.Lerp(start.position, top.position, delta);
             if (timer > moveTime)
             {
-                player.transform.eulerAngles = Vector3.zero;
+                //player.transform.eulerAngles = Vector3.zero;
                 break;
             }
             yield return null;
         }
 
     }
-
-    float gravity = 10f;//重力加速度
+    float gravity = 9.8f;//重力加速度
+    [SerializeField] private float degree = 30f;//角度
+    [SerializeField] private float v0 = 10; //初速度
     /// <summary>
     /// 重力を用いた斜方投射での移動
     /// </summary>
-    /// <param name="transform"></param>
+    /// <param name="ballTransform"></param>
     /// <returns></returns>
-    private IEnumerator ProjectileMotion(Transform transform)
+    private IEnumerator ProjectileMotion(Transform ballTransform)
     {
         float time = 0;
-        Vector3 startPos = transform.position;
+        // 開始位置
+        Vector3 startPos = ballTransform.position;
         while (true)
         {
             time += Time.deltaTime;
-            float vx = Mathf.Cos(Mathf.Deg2Rad * degree) * speed * time;
-            float vy = (Mathf.Sin(Mathf.Deg2Rad * degree) * speed) * time - (gravity / 2) * Mathf.Pow(time, 2);
-            transform.position = new Vector3(startPos.x - vx, startPos.y + vy, transform.position.z);
+            float vx = Mathf.Cos(Mathf.Deg2Rad * degree) * v0 * time;
+            float vy = (Mathf.Sin(Mathf.Deg2Rad * degree) * v0) * time - (gravity / 2) * Mathf.Pow(time, 2);
+            ballTransform.position = new Vector3(startPos.x - vx, startPos.y + vy, ballTransform.position.z);
+            // y方向への移動がなくなったら
             if (vy <= 0)
             {
-                player.transform.eulerAngles = Vector3.zero;
-                transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+                //player.transform.eulerAngles = Vector3.zero;
+                ballTransform.position = new Vector3(ballTransform.position.x, 0, ballTransform.position.z);
                 yield break;
             }
             yield return null;
         }
     }
+
 }
