@@ -25,9 +25,16 @@ public class KitchenGameManager : MonoBehaviour
     [SerializeField] private float countDownToStartTimer = 3f;
     [SerializeField] private float gamePlayingTimer = 60f;
 
+    [SerializeField] private GameInput gameInput;
+
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        gameInput.OnAppQuitAction += AppQuit;
     }
 
     private void Update()
@@ -67,5 +74,10 @@ public class KitchenGameManager : MonoBehaviour
     public float GetCountdownToStartTimer()
     {
         return countDownToStartTimer;
+    }
+    private void AppQuit(object sender, EventArgs e)
+    {
+        Debug.Log("Hello Quit");
+        Application.Quit();
     }
 }

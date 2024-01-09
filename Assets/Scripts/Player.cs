@@ -174,7 +174,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         else
         {
             SetSlectedCounter(null);
-            //SetCannon(null);
         }
     }
 

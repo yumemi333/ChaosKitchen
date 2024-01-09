@@ -5,6 +5,7 @@ public class GameInput : MonoBehaviour
 {
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
+    public event EventHandler OnAppQuitAction;
 
     PlayerInputActions inputActions;
 
@@ -15,6 +16,12 @@ public class GameInput : MonoBehaviour
 
         inputActions.Player.Interact.performed += Interact_performed;
         inputActions.Player.Interact_Alternate.performed += Interact_Alternate_performed;
+        inputActions.Player.Exit.performed += Exit_performed;
+    }
+
+    private void Exit_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnAppQuitAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void Interact_Alternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
