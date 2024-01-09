@@ -186,7 +186,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             SelectedCounter = this.selectedCounter
         });
     }
-    private void SetCannon(Cannon cannon)
+
+    public void SetCannon(Cannon cannon)
     {
         this.cannon = cannon;
     }

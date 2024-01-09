@@ -27,10 +27,11 @@ public class Cannon : MonoBehaviour
         {
             //StartCoroutine(BezierCurve(player.transform, playerSetPosition, playerTopPosition, playerLandingPoint));
             StartCoroutine(ProjectileMotion(player.transform));
+            player.SetCannon(null);
         }
     }
 
-    //MEMO: 下に落ちる時もっと勢い良くしたいので、加速度を追加してもいいかも
+
     private IEnumerator BezierCurve(Transform current, Transform start, Transform top, Transform end)
     {
         float timer = 0f;
@@ -52,7 +53,8 @@ public class Cannon : MonoBehaviour
 
     }
 
-    float gravity = 10f;//重力加速度
+    private float gravity = 10f;//重力加速度
+
     /// <summary>
     /// 重力を用いた斜方投射での移動
     /// </summary>
