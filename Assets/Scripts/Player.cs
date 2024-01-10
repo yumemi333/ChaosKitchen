@@ -86,8 +86,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
-        if (!KitchenGameManager.Instance.IsGamePlaying)
+        if (!KitchenGameManager.Instance.IsGamePlaying || PlayerIsFrying())
         {
+            isWalking = false;
             return;
         }
         float moveDistance = Time.deltaTime * moveSpeed;
@@ -161,7 +162,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
                 {
                     SetSlectedCounter(baseCounter);
                 }
-            }      
+            }
             else if (hit.transform.TryGetComponent(out Cannon cannon))
             {
                 SetCannon(cannon);
@@ -214,5 +215,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     public bool HasKitchenObject()
     {
         return kitchenObject != null;
+    }
+
+    private bool PlayerIsFrying()
+    {
+        if (cannon == null)
+            return false;
+        return cannon.CurrentCannonState != Cannon.CannonState.Idle;
     }
 }

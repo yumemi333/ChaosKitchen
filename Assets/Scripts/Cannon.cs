@@ -11,6 +11,15 @@ public class Cannon : MonoBehaviour
     [SerializeField] private float degree = 30f;
     [SerializeField] private float speed = 10;
 
+    public CannonState CurrentCannonState { get; private set; } = CannonState.Idle;
+
+    public enum CannonState
+    {
+        Idle,
+        Set,
+        Frying,
+    }
+
     /// <summary>
     /// 発射準備or飛ぶ
     /// </summary>
@@ -22,15 +31,15 @@ public class Cannon : MonoBehaviour
             this.player = player;
             player.transform.eulerAngles = playerSetPosition.rotation.eulerAngles;
             this.player.transform.position = playerSetPosition.position;
+            CurrentCannonState = CannonState.Set;
         }
-        else
+        else if(CurrentCannonState == CannonState.Set)
         {
+            CurrentCannonState = CannonState.Frying;
             //StartCoroutine(BezierCurve(player.transform, playerSetPosition, playerTopPosition, playerLandingPoint));
             StartCoroutine(ProjectileMotion(player.transform));
-            player.SetCannon(null);
         }
     }
-
 
     private IEnumerator BezierCurve(Transform current, Transform start, Transform top, Transform end)
     {
@@ -46,6 +55,7 @@ public class Cannon : MonoBehaviour
             if (timer > moveTime)
             {
                 player.transform.eulerAngles = Vector3.zero;
+                CurrentCannonState = CannonState.Idle;
                 break;
             }
             yield return null;
@@ -74,9 +84,12 @@ public class Cannon : MonoBehaviour
             {
                 player.transform.eulerAngles = Vector3.zero;
                 transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+                CurrentCannonState = CannonState.Idle;
+                player.SetCannon(null);
                 yield break;
             }
             yield return null;
         }
     }
+
 }
