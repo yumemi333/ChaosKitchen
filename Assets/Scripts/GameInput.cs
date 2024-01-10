@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameInput : MonoBehaviour
 {
+    [SerializeField] private FixedJoystick fixedJoystick;
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
     public event EventHandler OnAppQuitAction;
@@ -36,7 +37,13 @@ public class GameInput : MonoBehaviour
 
     public Vector2 GetMovementVectorNormalized()
     {
+#if  !UNITY_EDITOR && UNITY_ANDROID
+        Vector3 direction = Vector3.forward * fixedJoystick.Vertical + Vector3.right * fixedJoystick.Horizontal;
+        Vector2 inputVector = new Vector2(direction.x, direction.z);
+        return inputVector.normalized;
+#else
         Vector2 inputVector = inputActions.Player.Move.ReadValue<Vector2>();
         return inputVector.normalized;
+#endif
     }
 }
