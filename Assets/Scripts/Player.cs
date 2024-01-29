@@ -3,25 +3,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IKitchenObjectParent
 {
-    private static Player instance;
-
-    public static Player Instance
-    {
-        get
-        {
-            return instance;
-        }
-        private set
-        {
-            instance = value;
-        }
-    }
+    public static Player Instance { get; private set; }
 
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
         public BaseCounter SelectedCounter;
     }
+
+    public event EventHandler<EventArgs> OnWarped;
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
@@ -40,16 +30,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private KitchenObject kitchenObject = null;
     [SerializeField] private Transform kitchenObjectHoldPoint;
 
+    private PlayerState currentPlayerState = PlayerState.EnableToMove;
+    public bool CanMove => currentPlayerState == PlayerState.EnableToMove;
+
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Debug.LogError("there is one more player instance");
-        }
+        Instance = this;
     }
 
     private void Start()
@@ -86,7 +72,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
-        if (!KitchenGameManager.Instance.IsGamePlaying || PlayerIsFrying())
+        if (!KitchenGameManager.Instance.IsGamePlaying || !CanMove)
         {
             isWalking = false;
             return;
@@ -167,6 +153,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             {
                 SetCannon(cannon);
             }
+            else if (hit.transform.TryGetComponent(out Warp warp))
+            {
+                SetWarp();
+            }
             else
             {
                 SetSlectedCounter(null);
@@ -176,6 +166,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             SetSlectedCounter(null);
         }
+    }
+
+    public void SetWarp()
+    {
+        OnWarped?.Invoke(this, EventArgs.Empty);
     }
 
     private void SetSlectedCounter(BaseCounter selectedCounter)
@@ -217,10 +212,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         return kitchenObject != null;
     }
 
-    private bool PlayerIsFrying()
+    public void SetPlayerState(PlayerState playerState)
     {
-        if (cannon == null)
-            return false;
-        return cannon.CurrentCannonState != Cannon.CannonState.Idle;
+        this.currentPlayerState = playerState;
     }
 }
